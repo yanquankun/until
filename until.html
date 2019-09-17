@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    if (typeof Array.prototype.mySort === "undefined") {
+        Object.defineProperty(Array.prototype, "mySort", {
+            writable: false,
+            enumerable: false,
+            configurable: true,
+            _type: null,
+            value: function () {
+                var _self = this;
+                if (Object.keys(arguments).length == 0) _type = 'up';
+                else for (var i in arguments) {
+                    _type = arguments[0];
+                }
+                switch (_type) {
+                    case 'up':
+                        return _self.sort((a, b) => { return a - b })
+                        break;
+                    case 'down':
+                        return _self.sort((a, b) => { return b - a })
+                        break;
+                }
+            }
+        })
+    }
+</script>
+
+</html>
